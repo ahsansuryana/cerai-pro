@@ -38,6 +38,46 @@ const LAWYERS = [
     detail: '8 Tahun Pengalaman • Alumni Universitas Airlangga',
     rate: '4.6',
     note: 'Berpengalaman dalam mediasi perceraian dan pembagian harta bersama.'
+  },
+  {
+    name: 'Hendra Wijaya, S.H., M.H.',
+    initial: 'HW',
+    specialization: 'Spesialis Sengketa Harta Gono-Gini',
+    detail: '11 Tahun Pengalaman • Alumni Universitas Diponegoro',
+    rate: '4.7',
+    note: 'Ahli dalam sengketa pembagian harta bersama dan analisis bukti kepemilikan aset.'
+  },
+  {
+    name: 'Fitriani, S.H., M.Kn.',
+    initial: 'FN',
+    specialization: 'Spesialis Perlindungan Anak',
+    detail: '9 Tahun Pengalaman • Alumni Universitas Brawijaya',
+    rate: '4.8',
+    note: 'Berpengalaman dalam perkara hak asuh, adopsi anak, dan perlindungan anak korban perceraian.'
+  },
+  {
+    name: 'Bayu Permana, S.H.',
+    initial: 'BP',
+    specialization: 'Spesialis Hukum Acara Pengadilan Agama',
+    detail: '6 Tahun Pengalaman • Alumni Universitas Sebelas Maret',
+    rate: '4.5',
+    note: 'Menguasai prosedur beracara di Pengadilan Agama dan penyusunan dokumen hukum.'
+  },
+  {
+    name: 'Ratna Dewi, S.H.I., M.H.',
+    initial: 'RD',
+    specialization: 'Spesialis Hukum Keluarga Islam',
+    detail: '10 Tahun Pengalaman • Alumni IAIN Sunan Ampel',
+    rate: '4.8',
+    note: 'Pakar hukum keluarga Islam, poligami, penetapan wali, dan waris berdasarkan KHI.'
+  },
+  {
+    name: 'Intan Permatasari, S.H.',
+    initial: 'IP',
+    specialization: 'Spesialis Konsultasi Pranikah & Mediasi',
+    detail: '7 Tahun Pengalaman • Alumni Universitas Sumatera Utara',
+    rate: '4.7',
+    note: 'Membantu klien dalam mediasi pra-perceraian, konsultasi pranikah, dan pembuatan perjanjian kawin.'
   }
 ];
 
