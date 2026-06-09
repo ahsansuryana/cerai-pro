@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/jpeg" href="icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar / Masuk - Cerai.Pro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            toscaDark: '#0D7A87',
+            toscaLight: '#20B2AA',
+            oceanBlue: '#4A9DEC',
+            oceanLight: '#EBF4FA',
+            sandWhite: '#F7FCFC'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-sandWhite text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <header class="sticky top-0 bg-white/90 backdrop-blur-md z-40 border-b border-oceanLight">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-3">
+        <svg class="w-10 h-10 text-toscaDark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M85 35 C75 36, 68 40, 58 40 C52 40, 48 43, 44 46"></path>
+          <path d="M78 48 C72 48, 65 44, 52 44 C46 44, 42 47, 39 50"></path>
+          <path d="M15 65 C25 64, 32 60, 42 60 C48 60, 52 57, 56 54"></path>
+          <path d="M22 52 C28 52, 35 56, 48 56 C54 56, 58 53, 61 50"></path>
+        </svg>
+        <span class="text-xl font-bold text-toscaDark tracking-wide">Cerai.Pro</span>
+      </a>
+      <a href="index.html" class="text-sm text-slate-500 hover:text-toscaDark">&larr; Kembali</a>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center px-6 py-12">
+    <div class="w-full max-w-5xl grid md:grid-cols-5 gap-0 bg-white rounded-2xl shadow-2xl overflow-hidden border border-oceanLight">
+      <div class="md:col-span-2 bg-gradient-to-br from-toscaDark to-oceanBlue p-8 flex flex-col justify-between text-white">
+        <div class="space-y-4">
+          <span class="text-2xl font-bold tracking-wide">Cerai.Pro</span>
+          <h2 class="text-2xl font-serif font-bold leading-snug">Konsultasi hukum yang aman dan terpercaya untuk membantu Anda mengambil keputusan terbaik.</h2>
+        </div>
+        <div class="text-xs text-white/70">&copy; 2026 Cerai.Pro. All Rights Reserved.</div>
+      </div>
+
+      <div class="md:col-span-3 p-8 space-y-4 text-xs">
+        <div class="flex bg-oceanLight p-1 rounded-lg mb-2">
+          <button class="tab-daftar w-1/2 text-center py-2 text-sm font-semibold bg-white rounded-md shadow-sm text-toscaDark">Daftar</button>
+          <button class="tab-masuk w-1/2 text-center py-2 text-sm font-medium text-slate-500 hover:text-toscaDark">Masuk</button>
+        </div>
+
+        <div id="register-success" class="hidden bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs p-3 rounded-lg text-center font-medium">
+          Pendaftaran berhasil! Silakan login dengan email Anda.
+        </div>
+
+        <div id="form-daftar" class="space-y-4">
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-slate-600 mb-1">Nama lengkap</label>
+              <input type="text" id="reg-nama" class="w-full p-2 border border-oceanLight rounded-lg focus:outline-none focus:border-toscaDark">
+            </div>
+            <div>
+              <label class="block text-slate-600 mb-1">Email / No HP</label>
+              <input type="text" id="reg-email" class="w-full p-2 border border-oceanLight rounded-lg focus:outline-none focus:border-toscaDark">
+            </div>
+          </div>
+          <div>
+            <label class="block text-slate-600 mb-1">NIK</label>
+            <input type="text" id="reg-nik" class="w-full p-2 border border-oceanLight rounded-lg focus:outline-none focus:border-toscaDark">
+          </div>
+          <div>
+            <label class="block text-slate-600 mb-1">Alasan Berkonsultasi</label>
+            <textarea id="reg-alasan" rows="2" class="w-full p-2 border border-oceanLight rounded-lg focus:outline-none focus:border-toscaDark"></textarea>
+          </div>
+          <button onclick="submitRegister()" class="w-full py-3 bg-toscaDark text-white rounded-xl font-medium text-sm hover:bg-toscaLight transition-all">Daftar &amp; Lanjutkan</button>
+        </div>
+
+        <div id="form-masuk" class="space-y-4 hidden">
+          <div>
+            <label class="block text-slate-600 mb-1">Email / No HP</label>
+            <input type="text" id="login-email" class="w-full p-2 border border-oceanLight rounded-lg focus:outline-none focus:border-toscaDark">
+          </div>
+          <button onclick="submitLogin()" class="w-full py-3 bg-toscaDark text-white rounded-xl font-medium text-sm hover:bg-toscaLight transition-all">Masuk</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-sandWhite border-t border-oceanLight py-6 text-xs text-center text-slate-400">
+    &copy; 2026 Cerai.Pro - Solusi Perceraian. Seluruh Hak Cipta Dilindungi untuk Keperluan Tugas Kuliah.
+  </footer>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/features.js"></script>
+</body>
+</html>

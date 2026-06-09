@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/jpeg" href="icon.jpeg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cetak - Cerai.Pro</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background: #f1f5f9;
+      padding: 20px;
+      color: #1e293b;
+    }
+
+    .print-container {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: white;
+      padding: 40px 45px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      min-height: 297mm;
+    }
+
+    .no-print {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .no-print button {
+      font-family: 'Inter', sans-serif;
+      background: #0D7A87;
+      color: white;
+      border: none;
+      padding: 10px 32px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .no-print button:hover { background: #20B2AA; }
+    .no-print .back-btn {
+      background: transparent;
+      color: #0D7A87;
+      border: 1px solid #0D7A87;
+      margin-right: 10px;
+    }
+    .no-print .back-btn:hover { background: #EBF4FA; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .print-container { box-shadow: none; padding: 30px 40px; min-height: auto; }
+      .no-print { display: none !important; }
+      @page { margin: 20mm 25mm; }
+    }
+
+    /* INVOICE */
+    .invoice-header { text-align: center; border-bottom: 2px solid #0D7A87; padding-bottom: 15px; margin-bottom: 20px; }
+    .invoice-header h1 { font-size: 22px; letter-spacing: 3px; color: #0D7A87; }
+    .invoice-header p { font-size: 11px; color: #64748b; margin-top: 2px; }
+    .invoice-title { text-align: center; font-size: 16px; font-weight: bold; text-decoration: underline; margin-bottom: 20px; }
+    .invoice-details { font-size: 12px; margin-bottom: 20px; }
+    .invoice-details td { padding: 3px 8px; }
+    .invoice-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 20px; }
+    .invoice-table th { background: #0D7A87; color: white; padding: 8px 10px; text-align: left; }
+    .invoice-table td { padding: 8px 10px; border-bottom: 1px solid #e2e8f0; }
+    .invoice-total { text-align: right; font-size: 14px; font-weight: bold; margin-top: 10px; }
+    .invoice-total span { background: #EBF4FA; padding: 8px 16px; border-radius: 4px; }
+    .invoice-footer { text-align: center; font-size: 10px; color: #94a3b8; margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 10px; }
+
+    /* SURAT */
+    .surat-kop { text-align: center; border-bottom: 2px solid #0D7A87; padding-bottom: 10px; margin-bottom: 16px; }
+    .surat-kop h1 { font-size: 18px; letter-spacing: 2px; color: #0D7A87; }
+    .surat-kop p { font-size: 10px; color: #64748b; }
+    .surat-body { font-size: 12px; line-height: 1.8; }
+    .surat-body .subjek { text-align: center; font-size: 14px; font-weight: bold; text-decoration: underline; margin-bottom: 16px; }
+    .surat-body table { font-size: 12px; margin-left: 20px; margin-bottom: 10px; }
+    .surat-body table td { padding: 2px 8px; vertical-align: top; }
+    .surat-body ol { margin-left: 30px; margin-bottom: 10px; }
+    .surat-body ol li { margin-bottom: 4px; }
+    .surat-body .hormat { text-align: right; margin-top: 20px; }
+    .surat-body .hormat .nama { margin-top: 40px; font-weight: bold; }
+    .surat-body .hormat .label { font-size: 10px; color: #64748b; }
+  </style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="back-btn" onclick="history.back()">Kembali</button>
+  <button onclick="window.print()">Cetak / Simpan PDF</button>
+</div>
+
+<div class="print-container" id="print-content"></div>
+
+<script src="js/storage.js"></script>
+<script>
+function formatNumber(n) {
+  return 'Rp' + Number(n).toLocaleString('id-ID');
+}
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  return hari[d.getDay()] + ', ' + d.getDate() + ' ' + bulan[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function renderInvoice(data) {
+  return `
+    <div class="invoice-header">
+      <h1>CERAI.PRO</h1>
+      <p>SOLUSI PERCERAIAN &bull; KONSULTASI HUKUM TERPERCAYA</p>
+    </div>
+    <div class="invoice-title">INVOICE / KWITANSI PEMBAYARAN</div>
+    <table class="invoice-details">
+      <tr><td style="width:120px;">No. Invoice</td><td>: <strong>${data.orderId}</strong></td></tr>
+      <tr><td>Tanggal</td><td>: ${formatDate(data.date)}</td></tr>
+      <tr><td>Klien</td><td>: <strong>${data.clientName}</strong></td></tr>
+      <tr><td>Layanan</td><td>: ${data.type}</td></tr>
+      <tr><td>Status</td><td>: <strong style="color:#059669;">LUNAS</strong></td></tr>
+    </table>
+    <table class="invoice-table">
+      <thead><tr><th>Deskripsi</th><th style="text-align:right">Jumlah</th></tr></thead>
+      <tbody>
+        <tr><td>${data.type}</td><td style="text-align:right">${formatNumber(data.amount)}</td></tr>
+      </tbody>
+    </table>
+    <div class="invoice-total"><span>Total: ${formatNumber(data.amount)}</span></div>
+    <div class="invoice-footer">
+      Terima kasih telah menggunakan layanan Cerai.Pro<br>
+      Dokumen ini sah dan dicetak secara elektronik
+    </div>
+  `;
+}
+
+function formatTanggal(iso) {
+  if (!iso) return '-';
+  const d = new Date(iso + 'T00:00:00');
+  const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  return d.getDate() + ' ' + bulan[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+function renderSurat(data) {
+  const isGugatan = data.jenis !== 'permohonan';
+  const P = isGugatan ? 'Penggugat' : 'Pemohon';
+  const T = isGugatan ? 'Tergugat' : 'Termohon';
+  const jenisLabel = isGugatan ? 'GUGATAN CERAI' : 'PERMOHONAN CERAI';
+  const nomorPrefix = isGugatan ? 'CP/SGC/' : 'CP/SPC/';
+
+  const alasanText = data.alasan
+    ? 'Bahwa pokok perkara ini diajukan dengan alasan: <strong>' + data.alasan + '</strong>'
+    : '';
+
+  const anakText = data.punyaAnak && data.anak && data.anak.length > 0 ? `
+    <div style="margin-bottom:6px;">Adapun anak dari perkawinan ini:</div>
+    <table style="margin-left:20px;margin-bottom:8px;font-size:12px;border-collapse:collapse;">
+      <tr style="border-bottom:1px solid #ccc;">
+        <th style="padding:2px 8px;text-align:left;">No</th>
+        <th style="padding:2px 8px;text-align:left;">Nama</th>
+        <th style="padding:2px 8px;text-align:left;">Jenis Kelamin</th>
+        <th style="padding:2px 8px;text-align:left;">Tempat, Tgl Lahir</th>
+      </tr>
+      ${data.anak.map((a, i) => `
+        <tr>
+          <td style="padding:2px 8px;">${i + 1}</td>
+          <td style="padding:2px 8px;">${a.nama}</td>
+          <td style="padding:2px 8px;">${a.jk}</td>
+          <td style="padding:2px 8px;">${a.ttl || '-'}</td>
+        </tr>
+      `).join('')}
+    </table>
+  ` : '';
+
+  const hakAsuhText = data.hakAsuh ? `
+    <li>Menetapkan hak asuh anak-anak tersebut kepada <strong>${data.hakAsuh}</strong>.</li>
+  ` : '';
+
+  const nafkahText = data.nafkah ? `
+    <li>Menghukum TERMOHON untuk membayar nafkah iddah sebesar <strong>Rp${String(data.nafkah).replace(/\./g, '')}</strong> kepada PEMOHON.</li>
+  ` : '';
+
+  const tuntutanAwal = isGugatan
+    ? 'Mengabulkan gugatan PENGGUGAT untuk seluruhnya.'
+    : 'Mengabulkan permohonan PEMOHON untuk seluruhnya.';
+
+  const tuntutanTalak = isGugatan
+    ? 'Menjatuhkan talak satu ba\'in sughra TERGUGAT terhadap PENGGUGAT.'
+    : 'Menjatuhkan talak satu ba\'in sughra PEMOHON terhadap TERMOHON.';
+
+  return `
+    <div class="surat-kop">
+      <h1>CERAI.PRO</h1>
+      <p>SOLUSI PERCERAIAN &bull; KONSULTASI HUKUM TERPERCAYA</p>
+    </div>
+    <div class="surat-body">
+      <div class="subjek">SURAT ${jenisLabel}</div>
+
+      <div style="margin-bottom:8px;">Nomor: ${nomorPrefix + Date.now()}</div>
+
+      <div style="margin-bottom:12px;">
+        Kepada Yth.<br>
+        <strong>Ketua Pengadilan Agama</strong><br>
+        di Tempat
+      </div>
+
+      <div style="margin-bottom:6px;">Dengan hormat,</div>
+      <div style="margin-bottom:6px;">Yang bertanda tangan di bawah ini:</div>
+
+      <table>
+        <tr><td style="width:100px;">Nama</td><td>: <strong>${data.nama}</strong></td></tr>
+        <tr><td>Umur</td><td>: ${data.umur || '-'} tahun</td></tr>
+        <tr><td>Agama</td><td>: ${data.agama || '-'}</td></tr>
+        <tr><td>Pekerjaan</td><td>: -</td></tr>
+        <tr><td>Alamat</td><td>: ${data.alamat || '-'}</td></tr>
+      </table>
+
+      <div style="margin-bottom:8px;">Selanjutnya disebut sebagai <strong>${P}</strong>.</div>
+
+      <div style="margin-bottom:6px;">Dengan ini mengajukan ${isGugatan ? 'gugatan cerai' : 'permohonan cerai'} terhadap:</div>
+
+      <table>
+        <tr><td style="width:100px;">Nama</td><td>: <strong>${data.pasangan}</strong></td></tr>
+        <tr><td>Umur</td><td>: ${data.umurPasangan || '-'} tahun</td></tr>
+        <tr><td>Agama</td><td>: -</td></tr>
+        <tr><td>Pekerjaan</td><td>: -</td></tr>
+        <tr><td>Alamat</td><td>: ${data.alamatPasangan || '-'}</td></tr>
+      </table>
+
+      <div style="margin-bottom:8px;">Selanjutnya disebut sebagai <strong>${T}</strong>.</div>
+
+      <div style="margin-bottom:8px;">
+        ${data.tanggalNikah ? '<div>Bahwa perkawinan antara ' + P + ' dan ' + T + ' dilangsungkan pada tanggal <strong>' + formatTanggal(data.tanggalNikah) + '</strong>.</div>' : ''}
+        ${data.nomorAkta ? '<div>Akta Nikah Nomor: <strong>' + data.nomorAkta + '</strong>' + (data.tanggalAkta ? ', dikeluarkan pada tanggal ' + formatTanggal(data.tanggalAkta) : '') + '.</div>' : ''}
+      </div>
+
+      ${anakText}
+
+      <div style="margin-bottom:8px;">
+        ${alasanText ? alasanText + ' Oleh karena itu, ' + P + ' mohon kepada Ketua Pengadilan Agama untuk memeriksa dan mengadili perkara ini, serta menjatuhkan putusan sebagai berikut:' : P + ' mohon kepada Ketua Pengadilan Agama untuk menjatuhkan putusan sebagai berikut:'}
+      </div>
+
+      <ol>
+        <li>${tuntutanAwal}</li>
+        <li>${tuntutanTalak}</li>
+        ${hakAsuhText}
+        ${nafkahText}
+        <li>Memerintahkan Panitera Pengadilan Agama untuk mengirimkan salinan putusan kepada Pegawai Pencatat Nikah.</li>
+        <li>Membebankan biaya perkara sesuai ketentuan yang berlaku.</li>
+      </ol>
+
+      <div style="margin-bottom:8px;">
+        Atau apabila Pengadilan berpendapat lain, mohon putusan yang seadil-adilnya (<em>ex aequo et bono</em>).
+      </div>
+
+      <div style="margin-bottom:4px;">Demikian ${isGugatan ? 'surat gugatan' : 'permohonan'} ini dibuat dengan sebenarnya untuk dipergunakan sebagaimana mestinya.</div>
+
+      <div class="hormat">
+        <div>Hormat Kami,</div>
+        <div class="nama">${data.nama}</div>
+        <div class="label">${P}</div>
+      </div>
+    </div>
+  `;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get('type');
+  const container = document.getElementById('print-content');
+
+  if (type === 'invoice') {
+    const data = Storage.getPrintInvoice();
+    if (data) {
+      container.innerHTML = renderInvoice(data);
+    } else {
+      container.innerHTML = '<p style="text-align:center;color:red;padding:40px;">Data invoice tidak ditemukan.</p>';
+    }
+  } else if (type === 'surat') {
+    const data = Storage.getPrintSurat();
+    if (data) {
+      container.innerHTML = renderSurat(data);
+    } else {
+      container.innerHTML = '<p style="text-align:center;color:red;padding:40px;">Data surat tidak ditemukan.</p>';
+    }
+  } else {
+    container.innerHTML = '<p style="text-align:center;color:red;padding:40px;">Tipe dokumen tidak dikenal.</p>';
+  }
+
+  setTimeout(function () { window.print(); }, 500);
+});
+</script>
+</body>
+</html>
