@@ -197,6 +197,24 @@ Semua data **tersimpan di browser pengguna**, tidak perlu backend atau database.
 - Modal menampilkan nama & catatan lawyer yang dipilih
 - Semua fungsi (chat, order, premium) otomatis pakai lawyer terpilih
 
+### 2026-06-09 — Landing Page Redesign
+- **Hero** baru dengan statistik (2.500+ kasus, 98% berhasil, 10 konsultan) + CTA ganda
+- **Alur Layanan** 4 langkah (Konsultasi → Analisis → Dokumen → Siap Ajukan)
+- **Layanan Detail** 3 kartu (Konsultasi, Dokumen, Pendampingan) dengan fitur per layanan
+- **Estimasi Biaya** 3 paket (Gratis, Premium Rp75.000, Dokumen Rp1.000.000)
+- **Profil Tim** 10 konsultan lengkap dengan nama, gelar, spesialisasi
+- **Testimoni** 3 kolom dari pengguna anonim
+- **Kenapa Harus Memilih Cerai.Pro** (Empati, Transparan, Privasi)
+- **Cek Kelayakan Cerai** — kuis interaktif 5 pertanyaan dengan hasil rekomendasi
+- **FAQ** accordion (6 pertanyaan: biaya, syarat, lama proses, hak asuh, privasi, online)
+- **Artikel Edukasi** 3 artikel (gugatan cerai, hak asuh anak, harta gono-gini)
+- **Media Sosial & Kontak** Instagram, YouTube, X, Threads + email, alamat, jam operasional
+- **Motivational Footer** "Sebuah Akhir, Sebuah Awal Baru"
+- **Footer** baru dengan nav, link privacy/terms, kontak
+- **privacy.html** — halaman Kebijakan Privasi
+- **terms.html** — halaman Syarat & Ketentuan
+- Navbar links jadi anchor scroll (`#layanan`, `#pengacara`, `#alur`, `#biaya`, `#faq`, `#kontak`)
+
 ---
 
 ## Cara Menjalankan

@@ -25,61 +25,592 @@
 </head>
 <body class="bg-sandWhite text-slate-800 antialiased min-h-screen flex flex-col">
 
-  <header class="sticky top-0 bg-white/90 backdrop-blur-md z-40 border-b border-oceanLight">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-3">
-        <svg class="w-12 h-12 text-toscaDark" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <header class="sticky top-0 bg-white/95 backdrop-blur-md z-40 border-b border-oceanLight shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2.5">
+        <svg class="w-10 h-10 text-toscaDark shrink-0" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M85 35 C75 36, 68 40, 58 40 C52 40, 48 43, 44 46"></path>
           <path d="M78 48 C72 48, 65 44, 52 44 C46 44, 42 47, 39 50"></path>
-          <path d="M55 40 C50 38, 45 35, 41 35 C38 35, 36 37, 43 40" stroke-width="1.2"></path>
-          <path d="M52 44 C48 41, 43 39, 40 40 C38 41, 40 43, 45 45" stroke-width="1.2"></path>
-          <path d="M48 47 C45 45, 42 45, 41 46 C40 47, 42 48, 44 49" stroke-width="1.2"></path>
           <path d="M15 65 C25 64, 32 60, 42 60 C48 60, 52 57, 56 54"></path>
           <path d="M22 52 C28 52, 35 56, 48 56 C54 56, 58 53, 61 50"></path>
-          <path d="M45 60 C50 62, 55 65, 59 65 C62 65, 64 63, 57 60" stroke-width="1.2"></path>
-          <path d="M48 56 C52 59, 57 61, 60 60 C62 59, 60 57, 55 55" stroke-width="1.2"></path>
-          <path d="M52 53 C55 55, 58 55, 59 54 C60 53, 58 52, 56 51" stroke-width="1.2"></path>
         </svg>
         <div>
-          <span class="text-2xl font-bold text-toscaDark tracking-wide block leading-none">Cerai.Pro</span>
-          <span class="text-xs text-oceanBlue font-medium tracking-wider">Solusi Perceraian</span>
+          <span class="text-xl sm:text-2xl font-bold text-toscaDark tracking-wide block leading-none">Cerai.Pro</span>
+          <span class="text-[10px] text-oceanBlue font-medium tracking-wider">Solusi Perceraian</span>
         </div>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#" class="hover:text-toscaDark transition-colors">Layanan</a>
-        <a href="#" class="hover:text-toscaDark transition-colors">Pengacara</a>
-        <a href="#" class="hover:text-toscaDark transition-colors">Cara Kerja</a>
-      </nav>
-      <a href="login.html" class="bg-toscaDark text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-toscaLight transition-all">Daftar / Masuk</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600">
+        <a href="#layanan" class="hover:text-toscaDark transition-colors">Layanan</a>
+        <a href="#pengacara" class="hover:text-toscaDark transition-colors">Pengacara</a>
+        <a href="#alur" class="hover:text-toscaDark transition-colors">Cara Kerja</a>
+        <a href="#biaya" class="hover:text-toscaDark transition-colors">Biaya</a>
+        <a href="#faq" class="hover:text-toscaDark transition-colors">FAQ</a>
+        <a href="#kontak" class="hover:text-toscaDark transition-colors">Kontak</a>
+      </div>
+      <a href="login.html" class="bg-toscaDark text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-toscaLight transition-all shadow-md shadow-toscaDark/20 whitespace-nowrap">Konsultasi Gratis</a>
     </div>
   </header>
 
   <main class="flex-grow">
-    <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- HERO -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20 grid md:grid-cols-2 gap-10 items-center">
       <div class="space-y-6">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl text-toscaDark font-bold leading-tight">Selesaikan Perceraian Anda dengan Bijak, Jaga Masa Depan Anda.</h1>
-        <p class="text-slate-600 text-lg">Layanan konsultasi hukum perceraian yang profesional, cepat, dan sepenuhnya rahasia. Dapatkan kepastian hukum bersama platform <strong class="text-toscaDark">Cerai.Pro</strong> langsung dari rumah Anda.</p>
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="login.html" class="inline-block bg-toscaDark text-white px-6 py-3.5 rounded-lg font-medium hover:bg-toscaLight transition-all shadow-lg shadow-toscaDark/20">Jadwalkan Konsultasi Sekarang</a>
+        <div class="inline-block px-3 py-1 bg-oceanLight text-toscaDark text-xs font-bold rounded-full">#SolusiHukumPerceraian</div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl text-toscaDark font-bold leading-tight">Selesaikan Perceraian dengan Bijak, <span class="text-oceanBlue">Tanpa Drama</span></h1>
+        <p class="text-slate-600 text-base sm:text-lg leading-relaxed">Bingung harus mulai dari mana? Cerai.Pro bantu Anda dari konsultasi awal hingga dokumen hukum siap pakai — <strong>tanpa harus ke pengacara mahal, tanparibet, dan 100% online.</strong></p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="login.html" class="inline-block bg-toscaDark text-white px-6 py-3.5 rounded-lg font-semibold hover:bg-toscaLight transition-all shadow-lg shadow-toscaDark/25">Konsultasi Sekarang</a>
+          <a href="#layanan" class="inline-block border border-toscaDark text-toscaDark px-6 py-3.5 rounded-lg font-semibold hover:bg-oceanLight transition-all">Lihat Layanan</a>
+        </div>
+        <div class="flex items-center gap-4 pt-2 text-xs text-slate-400">
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Terpercaya</span>
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Rahasia</span>
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Online 100%</span>
         </div>
       </div>
-      <div class="flex justify-center">
-        <div class="w-full max-w-md p-8 bg-white rounded-2xl shadow-xl border border-oceanLight flex flex-col items-center justify-center text-center">
-          <div class="w-20 h-20 bg-oceanLight rounded-full flex items-center justify-center text-toscaDark mb-4">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+      <div class="flex flex-col gap-4">
+        <div class="w-full p-6 sm:p-8 bg-white rounded-2xl shadow-xl border border-oceanLight">
+          <div class="grid grid-cols-3 gap-4 text-center mb-4">
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-toscaDark">2.500+</div>
+              <div class="text-[10px] text-slate-400">Kasus Dibantu</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-toscaDark">98%</div>
+              <div class="text-[10px] text-slate-400">Tingkat Keberhasilan</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-toscaDark">10</div>
+              <div class="text-[10px] text-slate-400">Konsultan Hukum</div>
+            </div>
           </div>
-          <h3 class="text-xl font-bold text-toscaDark mb-2">Privasi Terjamin 100%</h3>
-          <p class="text-sm text-slate-500">Semua riwayat hukum dan data dokumen Anda dienkripsi ketat di Cerai.Pro.</p>
+          <p class="text-[10px] text-slate-300 italic text-center border-t border-oceanLight pt-3">*Data simulasi untuk keperluan tugas</p>
+        </div>
+        <div class="w-full p-6 bg-white rounded-2xl shadow-xl border border-oceanLight">
+          <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-toscaDark/10 rounded-full flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-toscaDark">Privasi Terjamin 100%</h3>
+              <p class="text-xs text-slate-500">Data dan dokumen Anda sepenuhnya rahasia.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- ALUR LAYANAN -->
+    <section id="alur" class="bg-white py-16 border-y border-oceanLight">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">CARA KERJA</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Alur Layanan Cerai.Pro</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Dari konsultasi hingga dokumen hukum siap, semua online tanpa ribet.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center p-6 rounded-xl bg-sandWhite border border-oceanLight">
+            <div class="w-12 h-12 bg-toscaDark text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">1</div>
+            <h4 class="font-bold text-toscaDark text-sm">Konsultasi Awal</h4>
+            <p class="text-xs text-slate-500 mt-1">Daftar & jelaskan kasus Anda. Kami padankan dengan konsultan hukum yang tepat.</p>
+          </div>
+          <div class="text-center p-6 rounded-xl bg-sandWhite border border-oceanLight">
+            <div class="w-12 h-12 bg-toscaDark text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">2</div>
+            <h4 class="font-bold text-toscaDark text-sm">Analisis & Panduan</h4>
+            <p class="text-xs text-slate-500 mt-1">Konsultan meninjau berkas dan memberikan panduan langkah hukum selanjutnya.</p>
+          </div>
+          <div class="text-center p-6 rounded-xl bg-sandWhite border border-oceanLight">
+            <div class="w-12 h-12 bg-toscaDark text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">3</div>
+            <h4 class="font-bold text-toscaDark text-sm">Penyusunan Dokumen</h4>
+            <p class="text-xs text-slate-500 mt-1">Kami siapkan surat gugatan/permohonan cerai sesuai kebutuhan Anda.</p>
+          </div>
+          <div class="text-center p-6 rounded-xl bg-sandWhite border border-oceanLight">
+            <div class="w-12 h-12 bg-toscaDark text-white rounded-full flex items-center justify-center text-lg font-bold mx-auto mb-3">4</div>
+            <h4 class="font-bold text-toscaDark text-sm">Siap Diajukan</h4>
+            <p class="text-xs text-slate-500 mt-1">Dokumen siap cetak PDF & diajukan ke Pengadilan Agama setempat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LAYANAN DETAIL -->
+    <section id="layanan" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">LAYANAN</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Solusi Hukum Lengkap</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Tidak yakin dengan jalur hukum Anda? Kami siap membantu setiap langkah.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-oceanLight rounded-lg flex items-center justify-center text-toscaDark mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark">Konsultasi Perceraian</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Sesi chat pribadi dengan konsultan hukum spesialis perceraian. Tanyakan apa pun tentang proses cerai, hak asuh anak, pembagian harta, dan nafkah. Tersedia sesi <strong>gratis (uji coba)</strong> dan <strong>premium</strong> dengan konsultan berpengalaman.</p>
+            <ul class="mt-3 space-y-1 text-xs text-slate-600">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Konsultasi chat real-time</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>10 konsultan spesialis</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Jawab dalam 1x24 jam</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-oceanLight rounded-lg flex items-center justify-center text-toscaDark mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark">Dokumen Gugatan Otomatis</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Buat surat gugatan cerai atau permohonan cerai secara otomatis. Cukup isi data diri, data pasangan, dan alasan — sistem menghasilkan dokumen hukum formal berformat Pengadilan Agama siap cetak.</p>
+            <ul class="mt-3 space-y-1 text-xs text-slate-600">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Gugatan Cerai & Permohonan Cerai</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Format standar Pengadilan Agama</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Cetak PDF langsung</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm hover:shadow-md transition-all">
+            <div class="w-12 h-12 bg-oceanLight rounded-lg flex items-center justify-center text-toscaDark mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark">Pendampingan Hukum</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Dampingan penuh dari konsultan hukum untuk proses perceraian Anda. Mulai dari mediasi, penyusunan strategi, hingga pendampingan komunikasi dengan pihak Pengadilan Agama.</p>
+            <ul class="mt-3 space-y-1 text-xs text-slate-600">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Mediasi & negosiasi</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Strategi hak asuh & harta</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Konsultasi lanjutan via chat</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMASI BIAYA -->
+    <section id="biaya" class="bg-white py-16 border-y border-oceanLight">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">BIAYA</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Estimasi Biaya Layanan</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Transparan tanpa biaya tersembunyi. Pilih layanan sesuai kebutuhan Anda.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div class="bg-sandWhite rounded-xl p-6 border border-oceanLight text-center">
+            <h3 class="font-bold text-toscaDark">Konsultasi Gratis</h3>
+            <div class="text-3xl font-bold text-toscaDark my-3">Rp0</div>
+            <p class="text-xs text-slate-500">Sesi chat uji coba dengan konsultan</p>
+            <ul class="mt-4 space-y-1 text-xs text-slate-600 text-left">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>1 sesi chat konsultasi</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Balasan otomatis dari template</li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl p-6 border-2 border-toscaDark text-center shadow-lg relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-toscaDark text-white text-[10px] px-3 py-0.5 rounded-full font-bold">POPULER</div>
+            <h3 class="font-bold text-toscaDark">Konsultasi Premium</h3>
+            <div class="text-3xl font-bold text-toscaDark my-3">Rp75.000</div>
+            <p class="text-xs text-slate-500">Sesi chat dengan konsultan pilihan</p>
+            <ul class="mt-4 space-y-1 text-xs text-slate-600 text-left">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Konsultan hukum spesialis</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Chat 1-on-1 dengan advokat</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Sesi langsung tersedia</li>
+            </ul>
+          </div>
+          <div class="bg-sandWhite rounded-xl p-6 border border-oceanLight text-center">
+            <h3 class="font-bold text-toscaDark">Dokumen Hukum</h3>
+            <div class="text-3xl font-bold text-toscaDark my-3">Rp1.000.000</div>
+            <p class="text-xs text-slate-500">Lisensi unduh PDF surat gugatan</p>
+            <ul class="mt-4 space-y-1 text-xs text-slate-600 text-left">
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Surat gugatan/permohonan formal</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Format Pengadilan Agama</li>
+              <li class="flex items-start gap-2"><svg class="w-3.5 h-3.5 text-emerald-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>Cetak & siap diajukan</li>
+            </ul>
+          </div>
+        </div>
+        <div class="text-center mt-8">
+          <a href="login.html" class="inline-block bg-toscaDark text-white px-6 py-3 rounded-lg font-semibold hover:bg-toscaLight transition-all shadow-lg">Mulai Konsultasi Gratis</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFIL TIM PENGACARA -->
+    <section id="pengacara" class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">TIM KAMI</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Konsultan Hukum Cerai.Pro</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Profesional berpengalaman yang siap membantu kasus Anda.</p>
+        </div>
+        <div id="index-lawyers" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section class="bg-white py-16 border-y border-oceanLight">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">TESTIMONI</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Dengar dari Mereka yang Telah Berhasil Maju</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Cerita nyata dari pengguna Cerai.Pro yang telah melewati masa sulit.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-sandWhite rounded-xl p-6 border border-oceanLight">
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-600 leading-relaxed italic">"Konsultasi lebih mudah tanpa harus akomodasi, pelayanan yang sangat ramah."</p>
+            <p class="text-[10px] text-slate-400 mt-3 font-medium">— <span class="italic">Anonymous</span></p>
+          </div>
+          <div class="bg-sandWhite rounded-xl p-6 border border-oceanLight">
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-600 leading-relaxed italic">"Surat gugatan ini membawa saya ke dalam hari baru. Saya yang takut akan biaya menjadi tercerahkan, maka jangan takut untuk keluar dan pilih layanan dengan cerdas."</p>
+            <p class="text-[10px] text-slate-400 mt-3 font-medium">— <span class="italic">Anonymous</span></p>
+          </div>
+          <div class="bg-sandWhite rounded-xl p-6 border border-oceanLight">
+            <div class="flex items-center gap-1 text-amber-400 text-sm mb-3">★★★★★</div>
+            <p class="text-xs text-slate-600 leading-relaxed italic">"Saya tidak perlu mengeluarkan dana sebanyak 2 digit untuk membentuk suatu dokumen hukum, dan saya dapat mengajukannya sendiri kepada posbakum."</p>
+            <p class="text-[10px] text-slate-400 mt-3 font-medium">— <span class="italic">Anonymous</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KENAPA HARUS MEMILIH -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">KEUNGGULAN</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Kenapa Harus Memilih Cerai.Pro?</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm text-center">
+            <div class="w-14 h-14 bg-oceanLight rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark text-sm">Empati & Profesional</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Kami memahami bahwa ini adalah masa yang sulit. Kami memadukan pendekatan hukum yang tegas dengan komunikasi yang humanis.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm text-center">
+            <div class="w-14 h-14 bg-oceanLight rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark text-sm">Proses Transparan</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Tidak ada biaya yang disembunyikan. Anda tahu persis setiap tahapan proses hukum atau mediasi yang sedang berjalan.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 border border-oceanLight shadow-sm text-center">
+            <div class="w-14 h-14 bg-oceanLight rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path></svg>
+            </div>
+            <h3 class="font-bold text-toscaDark text-sm">Menjaga Privasi 100%</h3>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">Kerahasiaan data, dokumen, dan cerita hidup Anda adalah komitmen tertinggi kami.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CEK KELAYAKAN CERAI (KUIS) -->
+    <section class="bg-gradient-to-br from-toscaDark to-oceanBlue py-16">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-white">Cek Kelayakan Cerai</h2>
+        <p class="text-white/80 mt-2 text-sm">Ikuti kuis singkat untuk mengetahui langkah apa yang cocok untuk situasi Anda.</p>
+        <div id="quiz-box" class="mt-8 bg-white rounded-2xl p-6 sm:p-8 shadow-xl text-left">
+          <div id="quiz-question" class="text-sm font-semibold text-slate-700"></div>
+          <div id="quiz-options" class="mt-4 space-y-2"></div>
+          <div class="mt-6 flex justify-between items-center">
+            <span id="quiz-progress" class="text-xs text-slate-400"></span>
+            <button id="quiz-next" class="bg-toscaDark text-white px-5 py-2 rounded-lg text-xs font-semibold hover:bg-toscaLight disabled:opacity-40" disabled>Berikutnya</button>
+          </div>
+          <div id="quiz-result" class="hidden text-center py-4"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-white py-16 border-y border-oceanLight">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">FAQ</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Pertanyaan Umum</h2>
+        </div>
+        <div class="space-y-3" id="faq-container"></div>
+      </div>
+    </section>
+
+    <!-- ARTIKEL EDUKASI -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold text-toscaDark bg-oceanLight px-3 py-1 rounded-full">EDUKASI</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark mt-3">Artikel Hukum Terkini</h2>
+          <p class="text-slate-500 mt-2 max-w-xl mx-auto">Informasi hukum seputar perceraian, hak asuh anak, dan pembagian harta.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl border border-oceanLight overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div class="h-36 bg-gradient-to-br from-oceanLight to-toscaDark/10 flex items-center justify-center text-toscaDark text-4xl">⚖️</div>
+            <div class="p-5">
+              <span class="text-[10px] text-toscaDark font-bold bg-oceanLight px-2 py-0.5 rounded">Panduan</span>
+              <h3 class="font-bold text-slate-800 text-sm mt-2">Cara Mengajukan Gugatan Cerai di Pengadilan Agama</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Langkah-langkah lengkap mengajukan cerai gugat maupun cerai talak, dari dokumen yang diperlukan hingga proses persidangan.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-oceanLight overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div class="h-36 bg-gradient-to-br from-oceanLight to-toscaDark/10 flex items-center justify-center text-toscaDark text-4xl">👶</div>
+            <div class="p-5">
+              <span class="text-[10px] text-toscaDark font-bold bg-oceanLight px-2 py-0.5 rounded">Hak Asuh</span>
+              <h3 class="font-bold text-slate-800 text-sm mt-2">Hak Asuh Anak Setelah Perceraian: yang Perlu Diketahui</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Ketentuan hak asuh anak dalam hukum Indonesia dan faktor-faktor yang dipertimbangkan hakim Pengadilan Agama.</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl border border-oceanLight overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div class="h-36 bg-gradient-to-br from-oceanLight to-toscaDark/10 flex items-center justify-center text-toscaDark text-4xl">💰</div>
+            <div class="p-5">
+              <span class="text-[10px] text-toscaDark font-bold bg-oceanLight px-2 py-0.5 rounded">Harta</span>
+              <h3 class="font-bold text-slate-800 text-sm mt-2">Pembagian Harta Gono-Gini: Hak Istri & Suami</h3>
+              <p class="text-xs text-slate-500 mt-1 leading-relaxed">Penjelasan mengenai harta bersama, cara pembagian, dan tips melindungi aset Anda selama proses perceraian.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEDIA SOSIAL & KONTAK -->
+    <section id="kontak" class="bg-oceanLight py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <div class="space-y-6">
+            <h2 class="text-3xl sm:text-4xl font-bold text-toscaDark">Hubungi Kami</h2>
+            <p class="text-sm text-slate-600">Tetap terhubung dengan kami untuk mendapatkan edukasi hukum, tips finansial pasca-cerai, dan ruang saling menguatkan.</p>
+            <div class="space-y-4">
+              <a href="#" class="flex items-center gap-3 text-slate-600 hover:text-toscaDark transition-colors">
+                <svg class="w-6 h-6 text-toscaDark shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+                <span><strong>Instagram:</strong> @cerai.pro — Edukasi harian & Q&A</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 text-slate-600 hover:text-toscaDark transition-colors">
+                <svg class="w-6 h-6 text-toscaDark shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+                <span><strong>YouTube:</strong> cerai.pro — Video penjelasan hukum & diskusi</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 text-slate-600 hover:text-toscaDark transition-colors">
+                <svg class="w-6 h-6 text-toscaDark shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+                <span><strong>X:</strong> @cerai_pro — Diskusi santai & update isu terkini</span>
+              </a>
+              <a href="#" class="flex items-center gap-3 text-slate-600 hover:text-toscaDark transition-colors">
+                <svg class="w-6 h-6 text-toscaDark shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z"></path></svg>
+                <span><strong>Threads:</strong> @cerai.pro — Ruang cerita dan refleksi diri</span>
+              </a>
+            </div>
+            <div class="pt-4 border-t border-oceanBlue/20 space-y-2 text-sm text-slate-600">
+              <p class="flex items-center gap-2"><svg class="w-4 h-4 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"></path></svg>Email: <strong>halo@cerai.pro</strong></p>
+              <p class="flex items-center gap-2"><svg class="w-4 h-4 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"></path></svg>Alamat: <strong>Jl. Asia Afrika No. 123, Jakarta Pusat</strong></p>
+              <p class="flex items-center gap-2"><svg class="w-4 h-4 text-toscaDark" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Jam Operasional: <strong>Senin–Jumat, 08.00–20.00 WIB</strong></p>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-8 border border-oceanLight shadow-sm">
+            <h3 class="font-bold text-toscaDark text-lg mb-4">Ada Pertanyaan?</h3>
+            <form onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah kami terima.');">
+              <div class="space-y-3">
+                <input type="text" placeholder="Nama Lengkap" class="w-full p-2.5 border border-oceanLight rounded-lg text-sm focus:outline-none focus:border-toscaDark" required>
+                <input type="email" placeholder="Email Kontak" class="w-full p-2.5 border border-oceanLight rounded-lg text-sm focus:outline-none focus:border-toscaDark" required>
+                <textarea rows="3" placeholder="Pertanyaan Anda..." class="w-full p-2.5 border border-oceanLight rounded-lg text-sm focus:outline-none focus:border-toscaDark" required></textarea>
+                <button type="submit" class="w-full bg-toscaDark text-white py-2.5 rounded-lg font-semibold hover:bg-toscaLight transition-all shadow">Kirim Pesan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTIVATIONAL SECTION -->
+    <section class="bg-gradient-to-r from-toscaDark to-oceanBlue py-16 text-white text-center px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-4xl sm:text-5xl font-bold leading-tight">"Sebuah Akhir, Sebuah Awal Baru"</h2>
+        <p class="text-white/90 text-base sm:text-lg mt-6 leading-relaxed max-w-2xl mx-auto">
+          Perceraian bukanlah akhir dari segalanya, melainkan gerbang menuju kehidupan yang lebih sehat dan damai. Kami hadir bukan untuk memperkeruh suasana, tetapi untuk membantu Anda melangkah maju dengan kepala tegak, legalitas yang jelas, dan hati yang tenang.
+        </p>
+        <div class="mt-8">
+          <a href="login.html" class="inline-block bg-white text-toscaDark px-8 py-3.5 rounded-lg font-bold hover:bg-oceanLight transition-all shadow-lg">Konsultasi Sekarang — Gratis!</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="bg-sandWhite border-t border-oceanLight py-6 text-xs text-center text-slate-400">
-    &copy; 2026 Cerai.Pro - Solusi Perceraian. Seluruh Hak Cipta Dilindungi untuk Keperluan Tugas Kuliah.
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid md:grid-cols-4 gap-8 text-sm">
+        <div>
+          <h4 class="text-white font-bold mb-3">Cerai.Pro</h4>
+          <p class="text-xs leading-relaxed">Solusi perceraian online terpercaya di Indonesia. Kami membantu Anda melewati masa sulit dengan pendampingan hukum yang profesional.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Layanan</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#layanan" class="hover:text-white transition-colors">Konsultasi Perceraian</a></li>
+            <li><a href="#layanan" class="hover:text-white transition-colors">Dokumen Hukum</a></li>
+            <li><a href="#layanan" class="hover:text-white transition-colors">Pendampingan Mediasi</a></li>
+            <li><a href="#biaya" class="hover:text-white transition-colors">Estimasi Biaya</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Informasi</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#faq" class="hover:text-white transition-colors">FAQ</a></li>
+            <li><a href="#pengacara" class="hover:text-white transition-colors">Tim Pengacara</a></li>
+            <li><a href="privacy.html" class="hover:text-white transition-colors">Kebijakan Privasi</a></li>
+            <li><a href="terms.html" class="hover:text-white transition-colors">Syarat & Ketentuan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Kontak</h4>
+          <ul class="space-y-2 text-xs">
+            <li>halo@cerai.pro</li>
+            <li>Jl. Asia Afrika No. 123</li>
+            <li>Jakarta Pusat, Indonesia</li>
+            <li>Sen–Jum 08.00–20.00 WIB</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-slate-700 text-center text-xs">
+        &copy; 2026 Cerai.Pro — Solusi Perceraian. Seluruh Hak Cipta Dilindungi untuk Keperluan Tugas Kuliah.
+      </div>
+    </div>
   </footer>
 
   <script src="js/storage.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    const INDEX_LAWYERS = [
+      { name: 'Ahmad Fauzan, S.H., M.H.', initial: 'AF', specialization: 'Spesialis Hukum Keluarga & Perceraian', detail: '10 Tahun • UGM', note: 'Berpengalaman menangani perkara cerai gugat dan cerai talak di Pengadilan Agama.' },
+      { name: 'Siti Nurhaliza, S.H., M.Kn.', initial: 'SN', specialization: 'Spesialis Hak Asuh Anak & Nafkah', detail: '12 Tahun • UI', note: 'Fokus pada perlindungan hak anak dan nafkah pasca perceraian.' },
+      { name: 'Rizky Pratama, S.H.I., M.H.', initial: 'RP', specialization: 'Spesialis Hukum Islam & Itsbat Nikah', detail: '9 Tahun • UIN Jakarta', note: 'Ahli dalam itsbat nikah, hukum waris Islam, dan sengketa keluarga muslim.' },
+      { name: 'Dewi Sartika, S.H.', initial: 'DS', specialization: 'Spesialis KDRT & Perlindungan Perempuan', detail: '7 Tahun • Unpad', note: 'Pendamping hukum bagi korban KDRT dengan pendekatan empatik dan profesional.' },
+      { name: 'Dimas Ramadhan, S.H.', initial: 'DR', specialization: 'Spesialis Mediasi & Harta Gono-Gini', detail: '8 Tahun • Unair', note: 'Berpengalaman dalam mediasi perceraian dan pembagian harta bersama.' },
+      { name: 'Hendra Wijaya, S.H., M.H.', initial: 'HW', specialization: 'Spesialis Sengketa Harta Gono-Gini', detail: '11 Tahun • Undip', note: 'Ahli dalam sengketa pembagian harta bersama dan analisis bukti kepemilikan aset.' },
+      { name: 'Fitriani, S.H., M.Kn.', initial: 'FN', specialization: 'Spesialis Perlindungan Anak', detail: '9 Tahun • UB', note: 'Berpengalaman dalam perkara hak asuh, adopsi anak, dan perlindungan anak korban perceraian.' },
+      { name: 'Bayu Permana, S.H.', initial: 'BP', specialization: 'Spesialis Hukum Acara PA', detail: '6 Tahun • UNS', note: 'Menguasai prosedur beracara di Pengadilan Agama dan penyusunan dokumen hukum.' },
+      { name: 'Ratna Dewi, S.H.I., M.H.', initial: 'RD', specialization: 'Spesialis Hukum Keluarga Islam', detail: '10 Tahun • IAIN', note: 'Pakar hukum keluarga Islam, poligami, dan waris berdasarkan KHI.' },
+      { name: 'Intan Permatasari, S.H.', initial: 'IP', specialization: 'Spesialis Konsultasi Pranikah', detail: '7 Tahun • USU', note: 'Membantu dalam mediasi pra-perceraian, konsultasi pranikah, dan perjanjian kawin.' }
+    ];
+
+    // Render lawyers on index
+    const lc = document.getElementById('index-lawyers');
+    if (lc) {
+      lc.innerHTML = INDEX_LAWYERS.map(l => `
+        <div class="bg-white rounded-xl p-4 border border-oceanLight shadow-sm text-center">
+          <div class="w-12 h-12 bg-toscaLight text-white rounded-full flex items-center justify-center font-bold text-sm mx-auto mb-2">${l.initial}</div>
+          <h4 class="font-bold text-slate-800 text-xs">${l.name}</h4>
+          <p class="text-[10px] text-toscaDark font-medium mt-0.5">${l.specialization}</p>
+          <p class="text-[10px] text-slate-400 mt-1">${l.detail}</p>
+          <p class="text-[9px] text-slate-400 italic mt-2 border-t border-oceanLight pt-2">${l.note}</p>
+        </div>
+      `).join('');
+    }
+
+    // FAQ
+    const FAQS = [
+      { q: 'Berapa biaya konsultasi di Cerai.Pro?', a: 'Kami menyediakan sesi konsultasi gratis (uji coba) dan premium Rp75.000. Untuk dokumen hukum, biaya lisensi Rp1.000.000. Semua harga sudah termasuk pajak.' },
+      { q: 'Apa saja syarat untuk mengajukan gugatan cerai?', a: 'Syarat dasar: fotokopi KTP, akta nikah, kartu keluarga, dan dokumen pendukung lainnya. Cerai.Pro akan membantu Anda menyiapkan semua dokumen yang diperlukan.' },
+      { q: 'Berapa lama proses perceraian di Pengadilan Agama?', a: 'Proses cerai gugat umumnya 3–6 bulan, tergantung kompleksitas kasus dan kesediaan mediasi. Untuk cerai talak bisa lebih cepat.' },
+      { q: 'Bagaimana dengan hak asuh anak?', a: 'Hak asuh anak di bawah 12 tahun umumnya jatuh ke ibu, kecuali ada pertimbangan tertentu. Untuk anak di atas 12 tahun, dapat memilih sendiri. Cerai.Pro siap membantu negosiasi hak asuh.' },
+      { q: 'Apakah data saya aman di Cerai.Pro?', a: '100% aman. Semua data disimpan secara lokal di browser Anda (localStorage) dan tidak dikirim ke server manapun. Privasi adalah prioritas utama kami.' },
+      { q: 'Apakah saya perlu datang ke kantor?', a: 'Tidak perlu. Seluruh proses dari konsultasi hingga penyusunan dokumen dilakukan secara online. Dokumen siap cetak dan diajukan ke Pengadilan Agama.' }
+    ];
+
+    const fc = document.getElementById('faq-container');
+    if (fc) {
+      fc.innerHTML = FAQS.map((f, i) => `
+        <div class="border border-oceanLight rounded-lg overflow-hidden">
+          <button onclick="toggleFaq(${i})" class="w-full flex justify-between items-center p-4 text-left text-sm font-semibold text-slate-700 hover:bg-oceanLight/50 transition-colors">
+            <span>${f.q}</span>
+            <svg class="w-4 h-4 text-toscaDark shrink-0 transition-transform" id="faq-icon-${i}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>
+          </button>
+          <div id="faq-answer-${i}" class="hidden px-4 pb-4 text-xs text-slate-600 leading-relaxed">${f.a}</div>
+        </div>
+      `).join('');
+    }
+
+    function toggleFaq(i) {
+      const a = document.getElementById('faq-answer-' + i);
+      const icon = document.getElementById('faq-icon-' + i);
+      if (!a) return;
+      const open = !a.classList.contains('hidden');
+      a.classList.toggle('hidden');
+      if (icon) icon.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+
+    // CEK KELAYAKAN QUIZ
+    const QUIZ = [
+      { q: 'Apakah Anda sudah menikah secara sah (tercatat di KUA/Catatan Sipil)?', o: ['Ya, sudah tercatat', 'Belum tercatat', 'Tidak yakin'] },
+      { q: 'Apakah ada anak dari perkawinan ini?', o: ['Ya, ada anak', 'Tidak ada anak'] },
+      { q: 'Apakah Anda dan pasangan masih tinggal serumah?', o: ['Masih serumah', 'Sudah pisah rumah', 'Sudah pisah lebih dari 2 tahun'] },
+      { q: 'Apakah ada kekhawatiran mengenai kekerasan dalam rumah tangga?', o: ['Ya, ada KDRT', 'Tidak ada KDRT', 'Lebih ke konflik biasa'] },
+      { q: 'Tujuan Anda melakukan konsultasi?', o: ['Mengajukan gugatan cerai', 'Menyusun dokumen hukum', 'Hanya ingin konsultasi dulu'] }
+    ];
+
+    let quizStep = 0;
+    let quizAnswers = [];
+    const qBox = document.getElementById('quiz-question');
+    const qOpts = document.getElementById('quiz-options');
+    const qProg = document.getElementById('quiz-progress');
+    const qNext = document.getElementById('quiz-next');
+    const qResult = document.getElementById('quiz-result');
+
+    function renderQuiz() {
+      if (quizStep >= QUIZ.length) {
+        showQuizResult();
+        return;
+      }
+      const q = QUIZ[quizStep];
+      qBox.innerText = q.q;
+      qOpts.innerHTML = q.o.map((o, i) => `
+        <label class="flex items-center gap-2 p-2 border border-oceanLight rounded-lg cursor-pointer hover:bg-oceanLight/50 text-xs">
+          <input type="radio" name="quiz" value="${i}" onchange="selectQuizAnswer()">
+          ${o}
+        </label>
+      `).join('');
+      qProg.innerText = 'Pertanyaan ' + (quizStep + 1) + ' dari ' + QUIZ.length;
+      qNext.disabled = true;
+      qResult.classList.add('hidden');
+      document.getElementById('quiz-next').innerText = quizStep < QUIZ.length - 1 ? 'Berikutnya' : 'Lihat Hasil';
+    }
+
+    function selectQuizAnswer() {
+      const sel = document.querySelector('input[name="quiz"]:checked');
+      qNext.disabled = !sel;
+    }
+
+    qNext.addEventListener('click', function () {
+      const sel = document.querySelector('input[name="quiz"]:checked');
+      if (!sel) return;
+      quizAnswers.push(parseInt(sel.value));
+      quizStep++;
+      if (quizStep >= QUIZ.length) {
+        showQuizResult();
+      } else {
+        renderQuiz();
+      }
+    });
+
+    function showQuizResult() {
+      qBox.innerText = '';
+      qOpts.innerHTML = '';
+      qProg.innerText = '';
+      qNext.classList.add('hidden');
+      qResult.classList.remove('hidden');
+
+      const trauma = quizAnswers[3] === 0;
+      const anak = quizAnswers[1] === 0;
+      const pisah = quizAnswers[2] === 2;
+
+      let html = '<div class="text-lg font-bold text-toscaDark mb-2">Hasil Cek Kelayakan</div>';
+      if (trauma) {
+        html += '<p class="text-sm text-slate-700">Berdasarkan jawaban Anda, kami merekomendasikan <strong>konsultasi hukum segera</strong>. Kasus dengan indikasi KDRT perlu penanganan khusus dan pendampingan profesional.</p>';
+      } else if (anak) {
+        html += '<p class="text-sm text-slate-700">Anda memiliki anak, sehingga <strong>pengaturan hak asuh</strong> perlu didiskusikan lebih lanjut. Cerai.Pro siap membantu proses mediasi dan penyusunan dokumen.</p>';
+      } else if (pisah) {
+        html += '<p class="text-sm text-slate-700">Sudah pisah lebih dari 2 tahun — ini bisa menjadi alasan kuat untuk pengajuan cerai. Kami sarankan <strong>konsultasi untuk menyiapkan dokumen gugatan</strong>.</p>';
+      } else {
+        html += '<p class="text-sm text-slate-700">Situasi Anda cukup umum dan dapat ditangani dengan <strong>konsultasi reguler</strong>. Silakan hubungi konsultan untuk diskusi lebih lanjut.</p>';
+      }
+      html += '<div class="mt-4"><a href="login.html" class="inline-block bg-toscaDark text-white px-5 py-2 rounded-lg text-xs font-semibold hover:bg-toscaLight">Konsultasi Sekarang</a></div>';
+      qResult.innerHTML = html;
+    }
+
+    renderQuiz();
+  </script>
 </body>
 </html>
