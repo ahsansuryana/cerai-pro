@@ -1,5 +1,72 @@
-let currentSelectedLawyer = 'Andini Putri, S.H.';
+const LAWYERS = [
+  {
+    name: 'Ahmad Fauzan, S.H., M.H.',
+    initial: 'AF',
+    specialization: 'Spesialis Hukum Keluarga & Perceraian',
+    detail: '10 Tahun Pengalaman • Alumni Universitas Gadjah Mada',
+    rate: '4.8',
+    note: 'Berpengalaman menangani perkara cerai gugat dan cerai talak di Pengadilan Agama.'
+  },
+  {
+    name: 'Siti Nurhaliza, S.H., M.Kn.',
+    initial: 'SN',
+    specialization: 'Spesialis Hak Asuh Anak & Nafkah',
+    detail: '12 Tahun Pengalaman • Alumni Universitas Indonesia',
+    rate: '4.9',
+    note: 'Fokus pada perlindungan hak anak dan nafkah pasca perceraian.'
+  },
+  {
+    name: 'Rizky Pratama, S.H.I., M.H.',
+    initial: 'RP',
+    specialization: 'Spesialis Hukum Islam & Itsbat Nikah',
+    detail: '9 Tahun Pengalaman • Alumni UIN Syarif Hidayatullah',
+    rate: '4.7',
+    note: 'Ahli dalam itsbat nikah, hukum waris Islam, dan sengketa keluarga muslim.'
+  },
+  {
+    name: 'Dewi Sartika, S.H.',
+    initial: 'DS',
+    specialization: 'Spesialis KDRT & Perlindungan Perempuan',
+    detail: '7 Tahun Pengalaman • Alumni Universitas Padjadjaran',
+    rate: '4.9',
+    note: 'Pendamping hukum bagi korban KDRT dengan pendekatan empatik dan profesional.'
+  },
+  {
+    name: 'Dimas Ramadhan, S.H.',
+    initial: 'DR',
+    specialization: 'Spesialis Mediasi & Harta Gono-Gini',
+    detail: '8 Tahun Pengalaman • Alumni Universitas Airlangga',
+    rate: '4.6',
+    note: 'Berpengalaman dalam mediasi perceraian dan pembagian harta bersama.'
+  }
+];
+
+let currentSelectedLawyer = LAWYERS[0].name;
 let currentPaymentType = 'consultation';
+
+function renderLawyers() {
+  const container = document.getElementById('lawyers-container');
+  if (!container) return;
+  container.innerHTML = LAWYERS.map(l => `
+    <div class="bg-white rounded-xl p-5 border border-oceanLight flex flex-col justify-between shadow-sm">
+      <div class="space-y-3">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 bg-toscaLight text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">${l.initial}</div>
+          <div>
+            <h4 class="font-bold text-slate-800 text-sm">${l.name}</h4>
+            <p class="text-[11px] text-toscaDark font-medium">${l.specialization}</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-500">${l.detail}</p>
+        <p class="text-[10px] text-slate-400 italic border-t border-oceanLight pt-2">${l.note}</p>
+      </div>
+      <div class="mt-4 pt-3 border-t border-oceanLight flex items-center justify-between">
+        <span class="text-xs text-amber-500 font-bold">&starf; ${l.rate}</span>
+        <button onclick="openFreeTrialModal('${l.name.replace(/'/g, "\\'")}')" class="bg-toscaDark text-white text-xs px-3 py-1.5 rounded-md font-medium hover:bg-toscaLight shadow">Pilih Konsultan</button>
+      </div>
+    </div>
+  `).join('');
+}
 let currentChatSessionId = null;
 let currentJenisDokumen = 'gugatan';
 let childrenData = [];
@@ -30,6 +97,9 @@ function switchDashboardTab(tabName) {
   const btn = document.getElementById('btn-tab-' + tabName);
   if (btn) btn.classList.add('bg-white/10');
 
+  if (tabName === 'home') {
+    renderLawyers();
+  }
   if (tabName === 'generator') {
     generateSurat();
   }
@@ -86,6 +156,19 @@ function syncProfileData() {
 function openFreeTrialModal(lawyerName) {
   currentSelectedLawyer = lawyerName;
   const modal = document.getElementById('trial-modal');
+  const noteEl = document.getElementById('trial-lawyer-note');
+  const nameEl = document.getElementById('trial-lawyer-name');
+
+  if (nameEl) nameEl.innerText = lawyerName;
+
+  const lawyer = LAWYERS.find(l => l.name === lawyerName);
+  if (noteEl && lawyer) {
+    noteEl.innerText = lawyer.note;
+    noteEl.classList.remove('hidden');
+  } else if (noteEl) {
+    noteEl.classList.add('hidden');
+  }
+
   if (modal) modal.classList.remove('hidden');
 }
 

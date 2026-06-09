@@ -190,6 +190,13 @@ Semua data **tersimpan di browser pengguna**, tidak perlu backend atau database.
 - **Favicon**: `icon.jpeg` ditambahkan ke semua halaman HTML
 - Struktur data `cerai_doc_data` diperluas otomatis (JSON)
 
+### 2026-06-09 — 5 Konsultan Hukum
+- **5 lawyer** (3 laki-laki, 2 perempuan) dengan nama, gelar, spesialisasi, pengalaman, dan catatan masing-masing
+- Dirender dinamis dari array `LAWYERS` di `features.js`
+- Tampil di tab Home dashboard dalam grid card
+- Modal menampilkan nama & catatan lawyer yang dipilih
+- Semua fungsi (chat, order, premium) otomatis pakai lawyer terpilih
+
 ---
 
 ## Cara Menjalankan

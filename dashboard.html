@@ -74,24 +74,7 @@
 
       <!-- TAB: HOME -->
       <div id="subtab-home" class="dashboard-subtab space-y-6">
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="bg-white rounded-xl p-5 border border-oceanLight flex flex-col justify-between shadow-sm">
-            <div class="space-y-3">
-              <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-toscaLight text-white rounded-full flex items-center justify-center font-bold">AP</div>
-                <div>
-                  <h4 class="font-bold text-slate-800">Andini Putri, S.H.</h4>
-                  <p class="text-[11px] text-toscaDark font-medium">Spesialis Hak Asuh &amp; Gono-Gini</p>
-                </div>
-              </div>
-              <p class="text-xs text-slate-500">8 Tahun Pengalaman &bull; Alumni Universitas Indonesia</p>
-            </div>
-            <div class="mt-4 pt-3 border-t border-oceanLight flex items-center justify-between">
-              <span class="text-xs text-amber-500 font-bold">&starf; 4.9</span>
-              <button onclick="openFreeTrialModal('Andini Putri, S.H.')" class="bg-toscaDark text-white text-xs px-3 py-1.5 rounded-md font-medium hover:bg-toscaLight shadow">Pilih Konsultan</button>
-            </div>
-          </div>
-        </div>
+        <div id="lawyers-container" class="grid md:grid-cols-2 gap-6"></div>
       </div>
 
       <!-- TAB: ORDER -->
@@ -336,7 +319,8 @@
     <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-5 border border-oceanLight">
       <div class="text-center space-y-2">
         <h3 class="text-2xl font-bold text-toscaDark">Mulai Hubungi Konsultan Hukum</h3>
-        <p class="text-xs text-slate-500">Pilih opsi pendaftaran layanan konsultasi hukum keluarga profesional Anda di Cerai.Pro.</p>
+        <p class="text-xs text-toscaDark font-semibold" id="trial-lawyer-name">Ahmad Fauzan, S.H., M.H.</p>
+        <p id="trial-lawyer-note" class="text-[10px] text-slate-400 italic hidden"></p>
       </div>
       <div class="space-y-2 pt-2">
         <button onclick="startFreeTrialChat()" class="w-full py-3 bg-toscaLight text-white rounded-xl font-medium text-xs hover:bg-opacity-95 transition-all shadow-md">Chat Gratis (Uji Coba)</button>
