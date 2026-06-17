@@ -107,6 +107,7 @@ function renderLawyers() {
     </div>
   `).join('');
 }
+if (document.getElementById('lawyers-container')) renderLawyers();
 let currentChatSessionId = null;
 let currentJenisDokumen = 'gugatan';
 let childrenData = [];
@@ -260,9 +261,9 @@ function goToPremiumFeature(type) {
           <p class="font-semibold text-slate-700">Lisensi Unduh Berkas PDF Resmi</p>
           <p class="text-[10px] text-slate-400">Format standar Pengadilan Agama & e-Materai Terintegrasi</p>
         </div>
-        <span class="font-mono font-semibold text-slate-700">Rp1.000.000</span>
+        <span class="font-mono font-semibold text-slate-700">Rp3.000.000</span>
       </div>`;
-    totalText.innerText = 'Rp1.000.000';
+    totalText.innerText = 'Rp3.000.000';
   }
 
   switchDashboardTab('premium-feature');
@@ -274,13 +275,13 @@ function handleDownloadRequest() {
     Storage.savePrintSurat({ ...data, user: Storage.getUser() });
     window.location.href = 'print.html?type=surat';
   } else {
-    alert('Akses Terkunci! Anda harus menyelesaikan pembayaran lisensi dokumen Rp1.000.000 sebelum mengunduh berkas PDF ini.');
+    alert('Akses Terkunci! Anda harus menyelesaikan pembayaran lisensi dokumen Rp3.000.000 sebelum mengunduh berkas PDF ini.');
     goToPremiumFeature('document');
   }
 }
 
 function confirmPremiumPayment() {
-  const amount = currentPaymentType === 'consultation' ? 75000 : 1000000;
+  const amount = currentPaymentType === 'consultation' ? 75000 : 3000000;
   const label = currentPaymentType === 'consultation' ? 'Konsultasi Premium' : 'Dokumen Gugatan';
 
   Storage.savePayment(currentPaymentType, {
